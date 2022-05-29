@@ -14,7 +14,7 @@ export default function Home() {
         <StyledMainContainer>
             <p style={{ margin: 'auto', color: 'white' }}>Home</p>
             <Link to="/board" style={{ margin: 'auto', color: 'white' }}>
-                > Game
+                go game
             </Link>
         </StyledMainContainer>
     )

@@ -2,10 +2,20 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledMainContainer = styled.div`
+    display: flex;
     height: 50px;
-    border: 1px solid blue;
+    justify-content: center;
+    color: white;
 `
 
+const StyledTextTopBoard = styled.p``
+
 export default function TopBoard() {
-    return <StyledMainContainer>TopBoard</StyledMainContainer>
+    return (
+        <StyledMainContainer>
+            <StyledTextTopBoard>
+                You're entering the dungeon...
+            </StyledTextTopBoard>
+        </StyledMainContainer>
+    )
 }

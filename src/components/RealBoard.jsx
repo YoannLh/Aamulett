@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 
+import { drawCasesOnRealBoard } from '../features/drawCasesOnRealBoard'
+
 const StyledMainContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
     height: 610px;
-    border: 1px solid green;
+    justify-content: center;
 `
 
-export default function Board() {
-    return <StyledMainContainer>Board</StyledMainContainer>
+export default function RealBoard() {
+    useEffect(() => {
+        drawCasesOnRealBoard()
+    })
+
+    return <StyledMainContainer id="realBoard"></StyledMainContainer>
 }
