@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 
 import { drawCasesOnRealBoard } from '../features/drawCasesOnRealBoard'
+import { drawRooms } from '../features/drawRooms'
 
 const StyledMainContainer = styled.div`
     display: flex;
@@ -14,6 +15,7 @@ const StyledMainContainer = styled.div`
 export default function RealBoard() {
     useEffect(() => {
         drawCasesOnRealBoard()
+        drawRooms()
     })
 
     return <StyledMainContainer id="realBoard"></StyledMainContainer>

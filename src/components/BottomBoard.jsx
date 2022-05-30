@@ -19,9 +19,9 @@ export default function BottomBoard() {
     return (
         <StyledMainContainer>
             <StyledTextCharacter>
-                Yvan le péon - Mage - Level 13
+                Yvan le Péon - Mage - Level 13
             </StyledTextCharacter>
-            <StyledTextUnderground>5 ème Sous-sol</StyledTextUnderground>
+            <StyledTextUnderground>5 ème Sous-Sol</StyledTextUnderground>
         </StyledMainContainer>
     )
 }
