@@ -8,7 +8,7 @@ const rooms = [
 /**
  * function
  * From a random case, draw a room (bottom, left, top and right)
- * with random choices from array rooms
+ * with random sizes from array rooms
  */
 export function drawRooms() {
     let numberOfRooms = 9
@@ -20,7 +20,7 @@ export function drawRooms() {
          * function
          * Check if the first case of a room is not present
          * in borders top and right to not break the program
-         * or draw half room in right and left on the board
+         * or draw half room cut in right and left on the board
          */
         function checkPaddingOfBoard() {
             const outsides = []
@@ -52,25 +52,25 @@ export function drawRooms() {
 
         checkPaddingOfBoard()
 
-        // floor room
+        // draw bottom
         for (let i = 0; i <= randomRoom.width; i++) {
             document.getElementById(
                 'case ' + Number(randomCase + i)
             ).innerHTML = '_'
         }
-        // left room
+        // draw left
         for (let i = 0; i < randomRoom.height; i++) {
             document.getElementById(
                 'case ' + Number(randomCase - i * 85 - 85)
             ).innerHTML = '|'
         }
-        // roof room
+        // draw up
         for (let i = 0; i <= randomRoom.width; i++) {
             document.getElementById(
                 'case ' + Number(randomCase + i - randomRoom.height * 85 - 85)
             ).innerHTML = '_'
         }
-        // right room
+        // draw right
         for (let i = 0; i < randomRoom.height; i++) {
             document.getElementById(
                 'case ' + Number(randomCase + randomRoom.width - i * 85 - 85)
