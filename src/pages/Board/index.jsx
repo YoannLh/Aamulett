@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-import BottomBoard from '../components/BottomBoard'
-import RealBoard from '../components/RealBoard'
-import TopBoard from '../components/TopBoard'
+import BottomBoard from '../../components/BottomBoard'
+import RealBoard from '../../components/RealBoard'
+import TopBoard from '../../components/TopBoard'
 
 const StyledMainContainer = styled.main`
     display: flex;

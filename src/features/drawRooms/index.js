@@ -12,7 +12,7 @@ const rooms = [
  */
 export function drawRooms() {
     let numberOfRooms = 9
-    for (let x = 0; x <= numberOfRooms; x++) {
+    for (let x = 0; x < numberOfRooms; x++) {
         let randomCase = Math.floor(Math.random() * 2489)
         let randomRoom = rooms[Math.floor(Math.random() * rooms.length)]
 
@@ -49,23 +49,28 @@ export function drawRooms() {
                 checkPaddingOfBoard()
             }
         }
+
         checkPaddingOfBoard()
 
+        // floor room
         for (let i = 0; i <= randomRoom.width; i++) {
             document.getElementById(
                 'case ' + Number(randomCase + i)
             ).innerHTML = '_'
         }
+        // left room
         for (let i = 0; i < randomRoom.height; i++) {
             document.getElementById(
                 'case ' + Number(randomCase - i * 85 - 85)
             ).innerHTML = '|'
         }
+        // roof room
         for (let i = 0; i <= randomRoom.width; i++) {
             document.getElementById(
                 'case ' + Number(randomCase + i - randomRoom.height * 85 - 85)
             ).innerHTML = '_'
         }
+        // right room
         for (let i = 0; i < randomRoom.height; i++) {
             document.getElementById(
                 'case ' + Number(randomCase + randomRoom.width - i * 85 - 85)

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 
-import { drawCasesOnRealBoard } from '../features/drawCasesOnRealBoard'
-import { drawRooms } from '../features/drawRooms'
+import { drawCasesOnRealBoard } from '../../features/drawCasesOnRealBoard'
+import { drawRooms } from '../../features/drawRooms'
 
 const StyledMainContainer = styled.div`
     display: flex;
