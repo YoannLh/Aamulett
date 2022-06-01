@@ -25,18 +25,12 @@ export function drawRooms() {
         function checkPaddingOfBoard() {
             const outsides = []
             for (let i = 0; i < randomRoom.height * 85 + 85; i++) {
-                let elt = document.getElementById('case ' + i)
-                elt.style.color = 'red'
-                elt.innerHTML = '3'
                 outsides.push(i)
             }
             let x = 1
             let w = randomRoom.width
             for (let i = 85 * x - w; i < 85 * x; i++) {
                 if (x > 30) break
-                let elt = document.getElementById('case ' + i)
-                elt.style.color = 'green'
-                elt.innerHTML = '4'
                 outsides.push(i)
                 if (i === 85 * x - 1) {
                     x++
