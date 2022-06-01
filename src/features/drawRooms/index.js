@@ -7,7 +7,7 @@ const rooms = [
 
 /**
  * function
- * From a random case, draw a room (bottom, left, top and right)
+ * From a random case, draw a room (bottom, left, top, right and floor)
  * with random sizes from array rooms
  */
 export function drawRooms() {
@@ -69,6 +69,14 @@ export function drawRooms() {
             document.getElementById(
                 'case ' + Number(randomCase + randomRoom.width - i * 85 - 85)
             ).innerHTML = '|'
+        }
+        // draw floor
+        for (let i = 1; i < randomRoom.width; i++) {
+            for (let x = 1; x <= randomRoom.height; x++) {
+                document.getElementById(
+                    'case ' + Number(randomCase + i - 85 * x)
+                ).innerHTML = '.'
+            }
         }
     }
 }

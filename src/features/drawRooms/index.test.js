@@ -5,7 +5,7 @@ import RealBoard from '../../components/RealBoard'
 import { drawRooms } from './'
 
 describe('Feature drawRooms', () => {
-    it('Should draw all rooms', async () => {
+    it('Should draw all rooms with their walls and floor', async () => {
         render(
             <Board>
                 <RealBoard />
@@ -14,5 +14,6 @@ describe('Feature drawRooms', () => {
         drawRooms()
         expect(screen.getAllByText('_')).toBeTruthy()
         expect(screen.getAllByText('|')).toBeTruthy()
+        expect(screen.getAllByText('.')).toBeTruthy()
     })
 })
