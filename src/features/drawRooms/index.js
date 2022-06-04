@@ -11,14 +11,15 @@ const rooms = [
  * with random sizes from array rooms
  */
 export function drawRooms() {
-    let numberOfRooms = 12
+    let numberOfRooms = 10
     const allCasesOccupedByRooms = []
-    for (let z = 0; z < numberOfRooms; z++) {
+    for (let z = 0; z <= numberOfRooms; z++) {
         const tempBottom = []
         const tempLeft = []
         const tempRight = []
         const tempTop = []
         const tempFloor = []
+        const tempMarginOneCase = []
         let inc = z
         let randomCase = Math.floor(Math.random() * 2489)
         let randomRoom = rooms[Math.floor(Math.random() * rooms.length)]
@@ -78,61 +79,66 @@ export function drawRooms() {
                 tempFloor.push('case ' + Number(randomCase + i - 85 * x))
             }
         }
+        // store a one case margin around rooms to avoid closest room
+        for (let i = -1; i <= randomRoom.width + 1; i++) {
+            tempMarginOneCase.push('case ' + Number(randomCase + 85 + i))
+        }
+        for (let i = -1; i <= randomRoom.width + 1; i++) {
+            tempMarginOneCase.push(
+                'case ' +
+                    Number(randomCase + i - randomRoom.height * 85 - 85 - 85)
+            )
+        }
+        for (let i = -1; i <= randomRoom.height + 1; i++) {
+            tempMarginOneCase.push(
+                'case ' + Number(randomCase - i * 85 - 85 - 1)
+            )
+        }
+        for (let i = -1; i <= randomRoom.height + 1; i++) {
+            tempMarginOneCase.push(
+                'case ' +
+                    Number(randomCase + randomRoom.width - i * 85 - 85 + 1)
+            )
+        }
         /**
          * function
-         * Check if the temp room match with rooms stocked in allCasesOccupedByRooms
-         * If yes, reboot the loop
-         * If no, draw room
+         * Check if the temporay stored room match with rooms stocked in allCasesOccupedByRooms
+         * If it's true, restart the main loop (erasing all temporaries arrays)
+         * If false, draw room
          */
         function checkRooms() {
             for (const el of allCasesOccupedByRooms) {
                 if (
                     tempBottom.includes(el) ||
                     tempLeft.includes(el) ||
-                    tempLeft.includes(el) ||
                     tempRight.includes(el) ||
                     tempTop.includes(el) ||
-                    tempFloor.includes(el)
+                    tempFloor.includes(el) ||
+                    tempMarginOneCase.includes(el)
                 ) {
                     z = inc - 1
                     return
                 }
             }
-
             for (const b of tempBottom) {
-                if (allCasesOccupedByRooms.includes(b)) {
-                } else {
-                    document.getElementById(b).innerHTML = '_'
-                    allCasesOccupedByRooms.push(b)
-                }
+                document.getElementById(b).innerHTML = '_'
+                allCasesOccupedByRooms.push(b)
             }
             for (const l of tempLeft) {
-                if (allCasesOccupedByRooms.includes(l)) {
-                } else {
-                    document.getElementById(l).innerHTML = '|'
-                    allCasesOccupedByRooms.push(l)
-                }
+                document.getElementById(l).innerHTML = '|'
+                allCasesOccupedByRooms.push(l)
             }
             for (const t of tempTop) {
-                if (allCasesOccupedByRooms.includes(t)) {
-                } else {
-                    document.getElementById(t).innerHTML = '_'
-                    allCasesOccupedByRooms.push(t)
-                }
+                document.getElementById(t).innerHTML = '_'
+                allCasesOccupedByRooms.push(t)
             }
             for (const r of tempRight) {
-                if (allCasesOccupedByRooms.includes(r)) {
-                } else {
-                    document.getElementById(r).innerHTML = '|'
-                    allCasesOccupedByRooms.push(r)
-                }
+                document.getElementById(r).innerHTML = '|'
+                allCasesOccupedByRooms.push(r)
             }
             for (const f of tempFloor) {
-                if (allCasesOccupedByRooms.includes(f)) {
-                } else {
-                    document.getElementById(f).innerHTML = '.'
-                    allCasesOccupedByRooms.push(f)
-                }
+                document.getElementById(f).innerHTML = '.'
+                allCasesOccupedByRooms.push(f)
             }
         }
         checkRooms()
