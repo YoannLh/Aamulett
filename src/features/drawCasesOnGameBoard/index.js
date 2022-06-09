@@ -2,7 +2,7 @@
  * function
  * create all cases of the main board - 2550 cases = ( 30 * 85 ) - 1
  */
-export function drawCasesOnRealBoard() {
+export function drawCasesOnGameBoard() {
     //
     //let row = 1
     //
@@ -23,6 +23,6 @@ export function drawCasesOnRealBoard() {
         //     elt.innerHTML = '#'
         // }
         //
-        document.getElementById('realBoard').appendChild(elt)
+        document.getElementById('gameBoard').appendChild(elt)
     }
 }

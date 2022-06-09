@@ -1,12 +1,12 @@
 import Board from '../../pages/Board'
-import RealBoard from './'
+import GameBoard from './'
 import { render, screen } from '@testing-library/react'
 
-describe('Component TopBoard', () => {
+describe('Component GameBoard', () => {
     it("Should render with at least one case containing one room's bottom", async () => {
         render(
             <Board>
-                <RealBoard />
+                <GameBoard />
             </Board>
         )
         expect(screen.getAllByText('_')).toBeTruthy()

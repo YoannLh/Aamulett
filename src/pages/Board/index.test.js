@@ -1,16 +1,16 @@
 import Board from '../../pages/Board'
 import TopBoard from '../../components/TopBoard'
-import RealBoard from '../../components/RealBoard'
+import GameBoard from '../../components/GameBoard'
 import BottomBoard from '../../components/BottomBoard'
 
 import { render, screen } from '@testing-library/react'
 
 describe('Page Board', () => {
-    it('Should render with TopBoard, RealBoard and BottomBoard', async () => {
+    it('Should render with TopBoard, GameBoard and BottomBoard', async () => {
         render(
             <Board>
                 <TopBoard />
-                <RealBoard />
+                <GameBoard />
                 <BottomBoard />
             </Board>
         )

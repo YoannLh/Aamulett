@@ -1,19 +1,20 @@
 import { render, screen } from '@testing-library/react'
 
 import Board from '../../pages/Board'
-import RealBoard from '../../components/RealBoard'
+import GameBoard from '../../components/GameBoard'
 import { drawRooms } from './'
 
 describe('Feature drawRooms', () => {
-    it('Should draw all rooms with their walls and floor', async () => {
+    it('Should draw all rooms with their walls, floor and door(s)', async () => {
         render(
             <Board>
-                <RealBoard />
+                <GameBoard />
             </Board>
         )
         drawRooms()
         expect(screen.getAllByText('_')).toBeTruthy()
         expect(screen.getAllByText('|')).toBeTruthy()
         expect(screen.getAllByText('.')).toBeTruthy()
+        expect(screen.getAllByText('+')).toBeTruthy()
     })
 })

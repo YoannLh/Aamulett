@@ -1,8 +1,9 @@
 const rooms = [
     { width: 6, height: 5 },
-    { width: 12, height: 8 },
+    { width: 12, height: 9 },
     { width: 10, height: 5 },
     { width: 8, height: 7 },
+    { width: 5, height: 7 },
 ]
 
 /**
@@ -30,7 +31,7 @@ export function drawRooms() {
          * in borders top and right to not break the program
          * or draw half room cut in right and left on the board
          */
-        function checkPaddingOfBoard() {
+        function checkPaddingOfGameBoard() {
             const outsides = []
             for (let i = 0; i < randomRoom.height * 85 + 85; i++) {
                 outsides.push(i)
@@ -47,11 +48,11 @@ export function drawRooms() {
             }
             if (outsides.includes(randomCase)) {
                 randomCase = Math.floor(Math.random() * 2489)
-                checkPaddingOfBoard()
+                checkPaddingOfGameBoard()
             }
         }
 
-        checkPaddingOfBoard()
+        checkPaddingOfGameBoard()
 
         // store bottom
         for (let i = 0; i <= randomRoom.width; i++) {
@@ -124,17 +125,23 @@ export function drawRooms() {
                 document.getElementById(b).innerHTML = '_'
                 allCasesOccupedByRooms.push(b)
             }
-            for (const l of tempLeft) {
-                document.getElementById(l).innerHTML = '|'
-                allCasesOccupedByRooms.push(l)
+            for (let i = 0; i < tempLeft.length; i++) {
+                document.getElementById(tempLeft[i]).innerHTML = '|'
+                if (i === Math.round(tempLeft.length / 2 - 1)) {
+                    document.getElementById(tempLeft[i]).innerHTML = '+'
+                }
+                allCasesOccupedByRooms.push(tempLeft[i])
             }
             for (const t of tempTop) {
                 document.getElementById(t).innerHTML = '_'
                 allCasesOccupedByRooms.push(t)
             }
-            for (const r of tempRight) {
-                document.getElementById(r).innerHTML = '|'
-                allCasesOccupedByRooms.push(r)
+            for (let i = 0; i < tempRight.length; i++) {
+                document.getElementById(tempRight[i]).innerHTML = '|'
+                if (i === Math.round(tempRight.length / 2 - 1)) {
+                    document.getElementById(tempRight[i]).innerHTML = '+'
+                }
+                allCasesOccupedByRooms.push(tempRight[i])
             }
             for (const f of tempFloor) {
                 document.getElementById(f).innerHTML = '.'

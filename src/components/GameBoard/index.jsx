@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 
-import { drawCasesOnRealBoard } from '../../features/drawCasesOnRealBoard'
+import { drawCasesOnGameBoard } from '../../features/drawCasesOnGameBoard'
 import { drawRooms } from '../../features/drawRooms'
 
 const StyledMainContainer = styled.div`
@@ -12,11 +12,11 @@ const StyledMainContainer = styled.div`
     justify-content: center;
 `
 
-export default function RealBoard() {
+export default function GameBoard() {
     useEffect(() => {
-        drawCasesOnRealBoard()
+        drawCasesOnGameBoard()
         drawRooms()
     })
 
-    return <StyledMainContainer id="realBoard"></StyledMainContainer>
+    return <StyledMainContainer id="gameBoard"></StyledMainContainer>
 }
