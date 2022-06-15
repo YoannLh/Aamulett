@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 
 import { drawCasesOnGameBoard } from '../../features/drawCasesOnGameBoard'
-import { drawRooms } from '../../features/drawRooms'
+import { initRooms } from '../../features/drawRooms'
 
 const StyledMainContainer = styled.div`
     display: flex;
@@ -15,7 +15,7 @@ const StyledMainContainer = styled.div`
 export default function GameBoard() {
     useEffect(() => {
         drawCasesOnGameBoard()
-        drawRooms()
+        initRooms()
     })
 
     return <StyledMainContainer id="gameBoard"></StyledMainContainer>

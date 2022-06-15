@@ -1,6 +1,6 @@
 /**
  * function
- * create all cases of the main board - 2550 cases = ( 30 * 85 ) - 1
+ * create all cases of the main board = 2550 cases = ( 30 * 85 ) - 1
  */
 export function drawCasesOnGameBoard() {
     //

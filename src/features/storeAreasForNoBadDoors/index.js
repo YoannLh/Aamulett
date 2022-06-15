@@ -11,7 +11,6 @@ export function storeAreaForNoDoorsLeft() {
     let row = 0
     for (let i = 0; i <= 15 + 85 * row; i++) {
         if (row === 30) break
-        document.getElementById('case ' + i).style.background = 'yellow'
         areaNoDoorLeft.push('case ' + i)
         if (i === 15 + 85 * row) {
             row++
@@ -29,7 +28,6 @@ export function storeAreaForNoDoorsTop() {
     let row = 1
     for (let i = 0; i <= 85 * row; i++) {
         if (row > 10 || i === 85 * 10) break
-        document.getElementById('case ' + i).style.background = 'blue'
         areaNoDoorTop.push('case ' + i)
         if (i === 85 * row) {
             row++
@@ -47,7 +45,6 @@ export function storeAreaForNoDoorsRight() {
     let row = 1
     for (let i = 60; i <= 85 * row; i++) {
         if (row > 30 || i === 2550) break
-        document.getElementById('case ' + i).style.background = 'green'
         areaNoDoorRight.push('case ' + i)
         if (i === 85 * row - 1) {
             row++
@@ -65,7 +62,6 @@ export function storeAreaForNoDoorsBottom() {
     let row = 24
     for (let i = 85 * row; i <= 85 * row + 85; i++) {
         if (row > 30 || i === 2550) break
-        document.getElementById('case ' + i).style.background = 'red'
         areaNoDoorBottom.push('case ' + i)
         if (i === 85 * row + 85) {
             row++
